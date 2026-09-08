@@ -28,7 +28,10 @@ function App() {
   
     setMessages([
       ...messages,
-      { role: "user", text: text },
+      {
+        role: "user",
+        text: text,
+      },
     ]);
   
     setInput("");
