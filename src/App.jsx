@@ -25,7 +25,7 @@ function App() {
 
   const sendMessage = (text = input) => {
     if (!text.trim()) return;
-  
+
     setMessages([
       ...messages,
       {
@@ -33,10 +33,22 @@ function App() {
         text: text,
       },
     ]);
-  
+
     setInput("");
+    if (text.toLowerCase().includes("paddy")) {
+      console.log(sampleData);
+
+      setMessages((currentMessages) => [
+        ...currentMessages,
+        {
+          role: "assistant",
+          type: "table",
+          data: sampleData,
+        },
+      ]);
+    }
     setIsThinking(true);
-  
+
     setTimeout(() => {
       setMessages((currentMessages) => [
         ...currentMessages,
@@ -45,7 +57,7 @@ function App() {
           text: "I received your request. Once the backend is connected, I’ll fetch the relevant government data for you.",
         },
       ]);
-  
+
       setIsThinking(false);
     }, 1000);
   };
@@ -124,17 +136,40 @@ function App() {
             {messages.map((message, index) => (
               <div
                 key={index}
-                className={`message ${
-                  message.role === "user"
+                className={`message ${message.role === "user"
                     ? "user-message"
                     : "assistant-message"
-                }`}
+                  }`}
               >
                 <div className="message-label">
                   {message.role === "user" ? "You" : "JanData Nexus"}
                 </div>
 
-                <div className="message-text">{message.text}</div>
+                <div className="message-text">
+                  {message.text}
+
+                  {message.type === "table" && (
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>District</th>
+                          <th>Year</th>
+                          <th>Production</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        {message.data.map((row, rowIndex) => (
+                          <tr key={rowIndex}>
+                            <td>{row.district}</td>
+                            <td>{row.year}</td>
+                            <td>{row.production}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                </div>
               </div>
             ))}
           </div>
