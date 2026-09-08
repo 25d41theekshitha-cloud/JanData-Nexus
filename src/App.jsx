@@ -5,6 +5,23 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isThinking, setIsThinking] = useState(false);
+  const sampleData = [
+    {
+      district: "Dakshina Kannada",
+      year: 2024,
+      production: "42,500 tonnes",
+    },
+    {
+      district: "Dakshina Kannada",
+      year: 2025,
+      production: "44,200 tonnes",
+    },
+    {
+      district: "Dakshina Kannada",
+      year: 2026,
+      production: "46,100 tonnes",
+    },
+  ];
 
   const sendMessage = (text = input) => {
     if (!text.trim()) return;
