@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 18px 40px;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #1f2937;
+}
+
+.header p {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.chat-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.messages {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 75%;
+  padding: 14px 17px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+}
+
+.assistant-message {
+  background: #f1f5f9;
+  margin-right: auto;
+}
+
+.user-message {
+  background: #2563eb;
+  color: white;
+  margin-left: auto;
+}
+
+.message-label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  opacity: 0.75;
+}
+
+.message-text {
+  line-height: 1.5;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+  padding: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 13px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.input-area input:focus {
+  border-color: #2563eb;
+}
+
+.input-area button {
+  padding: 13px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.input-area button:hover {
+  background: #1d4ed8;
+}
+
+
+
+
+.welcome {
+  text-align: center;
+  padding: 60px 30px;
+}
+
+.welcome-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.welcome h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.welcome p {
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.suggestions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 650px;
+  margin: auto;
+}
+
+.suggestions button {
+  padding: 16px;
+  background: white;
+  border: 1px solid #dbe1e8;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.suggestions button:hover {
+  border-color: #2563eb;
+  background: #f8faff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .suggestions {
+    grid-template-columns: 1fr;
+  }
+}
